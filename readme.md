@@ -13,7 +13,7 @@
 
 This only needs to be done once for your entire organization.
 
-1. Sign up at https://envmagic.com
+1. Sign up at [https://envmagic.com/signup](https://envmagic.com/signup)
 2. Note your API key, you will use it in a later step
 3. Install the `envmagic` CLI as described in [the installation instructions](#install-the-cli) below
 4. Run `envmagic setup`, paste the API key from step 2, and follow the rest of the prompts
@@ -36,7 +36,7 @@ chmod +x /usr/local/bin/envmagic
 
 ## CLI Usage
 
-### Setting an app's environment variables
+### Setting app environment variables
 
 To create/update a project, environment, and set the .env file variables required to run it, simply run:
 
@@ -87,7 +87,7 @@ While your app is running, if you or someone else in your organization runs `env
 
 ## Usage with Docker / Docker Compose
 
-### 1. Update your `Dockerfile`
+### Update your `Dockerfile`
 
 Edit your `Dockerfile` to install the `envmagic` CLI and prepend it to your existing CMD, like so:
 
@@ -103,13 +103,13 @@ RUN chmod +x /usr/local/bin/envmagic
 CMD ['/usr/local/bin/envmagic', '--project', 'my-app', '--env', 'prod', '--', './start-app.sh']
 ```
 
-### 2. Override the `docker run --command` you use for local development
+### Override the `docker run --command` you use for local development
 
 ```
 $ docker run [other options] --entrypoint '/bin/sh' $IMAGE -c '/usr/local/bin/envmagic --project my-app --env dev -- ./start-app.sh'
 ```
 
-### 3. Or override the `docker-compose.yml` command you use for local development
+### Or override the `docker-compose.yml` command you use for local development
 
 ```yml
 # docker-compose.yml
